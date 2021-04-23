@@ -3,6 +3,14 @@ public class Radio {
     private int currentStation;
     private int currentValue;
 
+    public void setCurrentStation(int currentStation) {
+        this.currentStation = currentStation;
+    }
+
+    public void setCurrentValue(int currentValue) {
+        this.currentValue = currentValue;
+    }
+
     public int getCurrentStation() {
         return currentStation;
     }
