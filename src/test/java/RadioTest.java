@@ -4,51 +4,68 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RadioTest {
 
     @Test
-    public void valueGetAndSetPositiv() {
+    public void nextValueChange() {
         Radio radio = new Radio();
-        int expectedValue = 8;
-        radio.setValue(expectedValue);
-        assertEquals(expectedValue, radio.getValue());
+        int expectedValue = 1;
+        radio.nextValue();
+        assertEquals(expectedValue, radio.getCurrentValue());
     }
 
     @Test
-    public void valueGetAndSetNextvValue() {
-        Radio radio = new Radio();
-        int expectedValue = 10;
-        radio.setValue(15);
-        assertEquals(expectedValue, radio.getValue());
-    }
-
-    @Test
-    public void valueGetAndSetPreviosvValue() {
+    public void previousValueChange() {
         Radio radio = new Radio();
         int expectedValue = 0;
-        radio.setValue(-1);
-        assertEquals(expectedValue, radio.getValue());
+        radio.previousValue();
+        assertEquals(expectedValue, radio.getCurrentValue());
     }
 
     @Test
-    public void stationGetAndSetPositiv() {
+    public void nextStationChange() {
         Radio radio = new Radio();
-        int expectedStation = 5;
-        radio.setCurrentStation(expectedStation);
+        int expectedStation = 1;
+        radio.nextStation();
         assertEquals(expectedStation, radio.getCurrentStation());
     }
 
     @Test
-    public void stationGetAndSetNextStation() {
+    public void allStationChange() {
         Radio radio = new Radio();
         int expectedStation = 0;
-        radio.setCurrentStation(10);
+        for(int i=0; i < 10; i++){
+            radio.nextStation();
+        }
         assertEquals(expectedStation, radio.getCurrentStation());
     }
 
     @Test
-    public void stationGetAndSetPreviostStation () {
+    public void allValueChange() {
         Radio radio = new Radio();
-        int expectedStation = 9;
-        radio.setCurrentStation(-1);
+        int expectedValue = 10;
+        for(int i=0; i < 12; i++){
+            radio.nextValue();
+        }
+        assertEquals(expectedValue, radio.getCurrentValue());
+    }
+
+    @Test
+    public void NextAndPreviousStation() {
+        Radio radio = new Radio();
+        int expectedStation = 2;
+        for(int i=0; i < 3; i++) {
+            radio.nextStation();
+        }
+        radio.previousStation();
         assertEquals(expectedStation, radio.getCurrentStation());
     }
 
+    @Test
+    public void NextAndPreviousValue() {
+        Radio radio = new Radio();
+        int expectedValue = 2;
+        for(int i=0; i < 3; i++) {
+            radio.nextValue();
+        }
+        radio.previousValue();
+        assertEquals(expectedValue, radio.getCurrentValue());
+    }
 }
