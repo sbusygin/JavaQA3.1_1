@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RadioTest {
@@ -31,7 +32,7 @@ public class RadioTest {
     public void allStationChange() {
         Radio radio = new Radio();
         int expectedStation = 0;
-        for(int i=0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             radio.nextStation();
         }
         assertEquals(expectedStation, radio.getCurrentStation());
@@ -41,7 +42,7 @@ public class RadioTest {
     public void allValueChange() {
         Radio radio = new Radio();
         int expectedValue = 10;
-        for(int i=0; i < 12; i++){
+        for (int i = 0; i < 12; i++) {
             radio.nextValue();
         }
         assertEquals(expectedValue, radio.getCurrentValue());
@@ -51,7 +52,7 @@ public class RadioTest {
     public void NextAndPreviousStation() {
         Radio radio = new Radio();
         int expectedStation = 2;
-        for(int i=0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             radio.nextStation();
         }
         radio.previousStation();
@@ -62,7 +63,7 @@ public class RadioTest {
     public void NextAndPreviousValue() {
         Radio radio = new Radio();
         int expectedValue = 2;
-        for(int i=0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             radio.nextValue();
         }
         radio.previousValue();

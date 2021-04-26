@@ -4,7 +4,11 @@ public class Radio {
     private int currentValue;
 
     public void setCurrentStation(int currentStation) {
-        this.currentStation = currentStation;
+        if (currentStation > 9) {
+            return;
+        } else if (currentStation < 0) {
+            return;
+        } else this.currentStation = currentStation;
     }
 
     public void setCurrentValue(int currentValue) {
@@ -38,14 +42,14 @@ public class Radio {
 
     public void nextValue() {
         ++this.currentValue;
-        if (this.currentValue > 10){
+        if (this.currentValue > 10) {
             this.currentValue = 10;
         }
     }
 
     public void previousValue() {
         --this.currentValue;
-        if (this.currentValue < 0){
+        if (this.currentValue < 0) {
             this.currentValue = 0;
         }
     }
