@@ -2,9 +2,10 @@
 public class Radio {
     private int currentStation;
     private int currentValue;
+    private int amountStation = 10;
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation > 9) {
+        if (currentStation > amountStation) {
             return;
         } else if (currentStation < 0) {
             return;
@@ -23,10 +24,13 @@ public class Radio {
         return currentValue;
     }
 
+    public int getAmountStation() {
+        return amountStation;
+    }
 
     public void nextStation() {
         ++this.currentStation;
-        if (this.currentStation > 9) {
+        if (this.currentStation > amountStation) {
             this.currentStation = 0;
         }
 
@@ -35,15 +39,15 @@ public class Radio {
     public void previousStation() {
         --this.currentStation;
         if (this.currentStation < 0) {
-            this.currentStation = 9;
+            this.currentStation = amountStation;
         }
 
     }
 
     public void nextValue() {
         ++this.currentValue;
-        if (this.currentValue > 10) {
-            this.currentValue = 10;
+        if (this.currentValue > amountStation) {
+            this.currentValue = amountStation;
         }
     }
 
@@ -52,5 +56,9 @@ public class Radio {
         if (this.currentValue < 0) {
             this.currentValue = 0;
         }
+    }
+
+    public Radio (int amountStation) {
+        this.amountStation = amountStation;
     }
 }

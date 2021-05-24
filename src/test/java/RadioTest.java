@@ -6,7 +6,7 @@ public class RadioTest {
 
     @Test
     public void nextValueChange() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         int expectedValue = 1;
         radio.nextValue();
         assertEquals(expectedValue, radio.getCurrentValue());
@@ -14,7 +14,7 @@ public class RadioTest {
 
     @Test
     public void previousValueChange() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(15);
         int expectedValue = 0;
         radio.previousValue();
         assertEquals(expectedValue, radio.getCurrentValue());
@@ -22,7 +22,7 @@ public class RadioTest {
 
     @Test
     public void nextStationChange() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         int expectedStation = 1;
         radio.nextStation();
         assertEquals(expectedStation, radio.getCurrentStation());
@@ -30,9 +30,9 @@ public class RadioTest {
 
     @Test
     public void allStationChange() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(20);
         int expectedStation = 0;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < radio.getAmountStation(); i++) {
             radio.nextStation();
         }
         assertEquals(expectedStation, radio.getCurrentStation());
@@ -40,7 +40,7 @@ public class RadioTest {
 
     @Test
     public void allValueChange() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         int expectedValue = 10;
         for (int i = 0; i < 12; i++) {
             radio.nextValue();
@@ -50,7 +50,7 @@ public class RadioTest {
 
     @Test
     public void NextAndPreviousStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         int expectedStation = 2;
         for (int i = 0; i < 3; i++) {
             radio.nextStation();
@@ -61,7 +61,7 @@ public class RadioTest {
 
     @Test
     public void NextAndPreviousValue() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         int expectedValue = 2;
         for (int i = 0; i < 3; i++) {
             radio.nextValue();
