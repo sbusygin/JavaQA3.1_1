@@ -31,7 +31,7 @@ public class RadioTest {
     @Test
     public void allStationChange() {
         Radio radio = new Radio(20);
-        int expectedStation = 0;
+        int expectedStation = radio.getAmountStation();
         for (int i = 0; i < radio.getAmountStation(); i++) {
             radio.nextStation();
         }
