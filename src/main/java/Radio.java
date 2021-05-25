@@ -2,14 +2,16 @@
 public class Radio {
     private int currentStation;
     private int currentValue;
-    private int amountStation = 10;
+    private int amountStation;
 
     public void setCurrentStation(int currentStation) {
         if (currentStation > amountStation) {
             return;
         } else if (currentStation < 0) {
             return;
-        } else this.currentStation = currentStation;
+        } else {
+            this.currentStation = currentStation;
+        }
     }
 
     public void setCurrentValue(int currentValue) {
@@ -59,6 +61,10 @@ public class Radio {
     }
 
     public Radio (int amountStation) {
-        this.amountStation = amountStation;
+        this.amountStation = amountStation - 1;
+    }
+
+    public Radio () {
+        this.amountStation = 9;
     }
 }
